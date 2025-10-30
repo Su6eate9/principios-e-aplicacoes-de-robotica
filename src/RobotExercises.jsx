@@ -99,8 +99,8 @@ export const RobotExercises = () => {
   // Exercício 1b: Transformação de ponto p=(0,1,1)
   const exercise1b = () => {
     const point = { x: 0, y: 1 };
-    // Rotação -45°
-    const T1 = calculateTransformationMatrix(0, 0, -45);
+    // Rotação 45°
+    const T1 = calculateTransformationMatrix(0, 0, 45);
     // Translação (3, 2)
     const T2 = calculateTransformationMatrix(3, 2, 0);
 
