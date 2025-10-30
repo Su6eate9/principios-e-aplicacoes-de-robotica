@@ -3,8 +3,6 @@ import ReactDOM from "react-dom/client";
 import RobotExercises from "./src/RobotExercises";
 import "./index.css"; // Certifique-se de ter Tailwind CSS configurado
 
-// Exemplo de uso do componente RobotExercises
-
 function App() {
   return (
     <div className="App">
@@ -12,8 +10,6 @@ function App() {
     </div>
   );
 }
-
-// Se você quiser usar apenas exercícios específicos, pode criar componentes separados:
 
 export const Exercise1 = () => {
   return (
