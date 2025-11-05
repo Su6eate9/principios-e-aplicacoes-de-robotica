@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/aStar-robot-app/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/aStar-robot-app/$1"
+    }
+  ]
+}
