@@ -1,12 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/aStar-robot-app/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/aStar-robot-app/$1"
-    }
-  ]
+  "buildCommand": "echo 'No build needed'",
+  "outputDirectory": "aStar-robot-app",
+  "cleanUrls": true
 }
