@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritmo A* - Navegação Robótica Móvel</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <header class="sidebar-header">
+          <h1>Algoritmo A*</h1>
+          <p>Navegação Robótica Móvel</p>
+        </header>
+
+        <section class="panel">
+          <h2>Gerenciar Mapas</h2>
+          <div class="button-group">
+            <label for="file-input" class="btn btn-primary"
+              >Carregar Mapa</label
+            >
+            <input type="file" id="file-input" accept=".txt,.csv" hidden />
+            <button id="save-map" class="btn btn-secondary">Salvar Mapa</button>
+            <button id="clear-map" class="btn btn-danger">Limpar Grade</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Mapas Padrão</h2>
+          <div class="button-group">
+            <button id="load-small" class="btn btn-default">
+              Pequeno (10×10)
+            </button>
+            <button id="load-medium" class="btn btn-default">
+              Médio (20×20)
+            </button>
+            <button id="load-large" class="btn btn-default">
+              Grande (30×30)
+            </button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Coordenadas</h2>
+          <div class="coordinate-input">
+            <label>Início (L, C):</label>
+            <div class="input-row">
+              <input type="number" id="start-row" min="0" value="0" />
+              <input type="number" id="start-col" min="0" value="0" />
+              <button id="set-start" class="btn btn-small">OK</button>
+            </div>
+          </div>
+          <div class="coordinate-input">
+            <label>Destino (L, C):</label>
+            <div class="input-row">
+              <input type="number" id="goal-row" min="0" value="9" />
+              <input type="number" id="goal-col" min="0" value="9" />
+              <button id="set-goal" class="btn btn-small">OK</button>
+            </div>
+          </div>
+          <div class="coordinate-display">
+            <p>
+              <strong>Início:</strong>
+              <span id="current-start">Não definido</span>
+            </p>
+            <p>
+              <strong>Destino:</strong>
+              <span id="current-goal">Não definido</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Mover Robô</h2>
+          <div class="coordinate-input">
+            <label>Mover para (L, C):</label>
+            <div class="input-row">
+              <input type="number" id="move-row" min="0" value="0" />
+              <input type="number" id="move-col" min="0" value="0" />
+              <button id="move-robot" class="btn btn-small">Ir</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Configurações A*</h2>
+          <div class="config-option">
+            <label>
+              <input type="checkbox" id="allow-diagonal" />
+              Movimentos diagonais (8 dir.)
+            </label>
+          </div>
+          <div class="config-option">
+            <label for="speed">Velocidade:</label>
+            <select id="speed">
+              <option value="slow">Lenta</option>
+              <option value="medium" selected>Média</option>
+              <option value="fast">Rápida</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Executar A*</h2>
+          <div class="button-group">
+            <button id="run-astar" class="btn btn-success">Executar</button>
+            <button id="step-astar" class="btn btn-secondary">
+              Passo a Passo
+            </button>
+            <button id="pause-astar" class="btn btn-warning" disabled>
+              Pausar
+            </button>
+            <button id="reset-path" class="btn btn-danger">
+              Limpar Caminho
+            </button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Modo de Edição</h2>
+          <div class="tool-selector">
+            <label>
+              <input type="radio" name="tool" value="toggle" checked />
+              Alternar livre/ocupado
+            </label>
+            <label>
+              <input type="radio" name="tool" value="start" />
+              Definir início
+            </label>
+            <label>
+              <input type="radio" name="tool" value="goal" />
+              Definir destino
+            </label>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <div class="grid-container">
+          <canvas id="grid-canvas"></canvas>
+        </div>
+      </main>
+
+      <footer class="status-bar">
+        <div class="status-item">
+          <span class="status-label">Status:</span>
+          <span id="status-text">Pronto</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Custo Total:</span>
+          <span id="path-cost">-</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Nós Visitados:</span>
+          <span id="nodes-visited">-</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Tempo:</span>
+          <span id="execution-time">-</span>
+        </div>
+      </footer>
+    </div>
+
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="js/grid.js"></script>
+    <script src="js/astar.js"></script>
+    <script src="js/mapLoader.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
