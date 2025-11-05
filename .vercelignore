@@ -1,0 +1,13 @@
+# Ignorar pasta duplicada
+aStar-robot-app/
+
+# Ignorar arquivos de documentação não necessários no deploy
+COMECE_AQUI.md
+EXERCISES_README.md
+MATHEMATICAL_DOCS.md
+QUICKSTART.md
+README_HTML.md
+
+# Ignorar arquivos do git
+.git/
+.gitignore
